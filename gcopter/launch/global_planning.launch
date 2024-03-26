@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+   <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find gcopter)/config/global_planning.rviz"> 
+  </node>
+  <!-- 用rqt_plot画出速度、推力……节点的值图 -->
+  <!-- <node name="pos_vel_plot" pkg="rqt_plot" type="rqt_plot" 
+    args="/visualizer/speed /visualizer/total_thrust /visualizer/tilt_angle /visualizer/body_rate">
+  </node> -->
+  <!-- 设置地图 voxelmap -->
+  <node pkg="dynamic_occpuancy_map" name="map_sim_example" type="map_sim_example" >
+	<remap from="/my_map/future_status" to="/voxel_map"/>
+	</node>
+  <!-- <node pkg="mockamap" type="mockamap_node" name="mockamap_node" output="screen"> -->
+  <!-- 设置参数 -->
+  <!-- <param name="seed" type="int" value="1024"/>
+  <param name="update_freq" type="double" value="1.0"/>
+  <param name="resolution" type="double" value="0.25"/>
+  <param name="x_length" type="int" value="50"/>
+  <param name="y_length" type="int" value="50"/>
+  <param name="z_length" type="int" value="5"/>
+  <param name="type" type="int" value="1"/>
+  <param name="complexity"    type="double" value="0.025"/>
+  <param name="fill"          type="double" value="0.3"/>
+  <param name="fractal"       type="int"    value="1"/>
+  <param name="attenuation"   type="double" value="0.1"/> -->
+  <!-- 映射话题 -->
+  <!-- <remap from="/mock_map" to="/voxel_map"/>
+  </node> -->
+  <!-- 启动规划器 -->
+  <node pkg="gcopter" type="global_planning" name="global_planning_node" output="screen" launch-prefix="gdb -ex run --args">
+  <!-- 相当于在终端使用命令行 rosparam load global_planning.yaml -->
+  <rosparam file="$(find gcopter)/config/global_planning.yaml" command="load" />
+  </node>
+  
+  <arg name="bag_dir" default="$(find dynamic_occpuancy_map)/data"/>
+	<arg name="dataset_name" default="street"/>
+  <!-- 设置播放频率 -->
+  <!-- <arg name="playback_rate" default="0.01"/> -->
+	<node pkg="rosbag" type="play" name="player1" args="$(arg bag_dir)/$(arg dataset_name).bag"/>
+
+</launch>
