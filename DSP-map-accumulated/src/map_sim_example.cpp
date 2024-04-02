@@ -610,7 +610,7 @@ int main(int argc, char **argv)
     ros::Subscriber object_states_sub = n.subscribe("/gazebo/model_states", 1, simObjectStateCallback);
 
     /// Input data for the map
-    ros::Subscriber point_cloud_sub = n.subscribe("/camera_front/depth/points", 1, cloudCallback);
+    ros::Subscriber point_cloud_sub = n.subscribe("/iris_D435i/realsense/depth_camera/depth/points", 1, cloudCallback);
     ros::Subscriber pose_sub = n.subscribe("/mavros/local_position/pose", 1, simPoseCallback);
 
     /// Visualization topics

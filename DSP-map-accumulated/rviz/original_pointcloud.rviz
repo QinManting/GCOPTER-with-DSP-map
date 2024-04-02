@@ -78,7 +78,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.05000000074505806
       Style: Flat Squares
-      Topic: /camera_front/depth/points
+      Topic:  /iris_D435i/realsense/depth_camera/depth/points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true

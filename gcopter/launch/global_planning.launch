@@ -33,10 +33,10 @@
   <rosparam file="$(find gcopter)/config/global_planning.yaml" command="load" />
   </node>
   
-  <arg name="bag_dir" default="$(find dynamic_occpuancy_map)/data"/>
-	<arg name="dataset_name" default="street"/>
+  <!-- <arg name="bag_dir" default="$(find dynamic_occpuancy_map)/data"/>
+	<arg name="dataset_name" default="street"/> -->
   <!-- 设置播放频率 -->
   <!-- <arg name="playback_rate" default="0.01"/> -->
-	<node pkg="rosbag" type="play" name="player1" args="$(arg bag_dir)/$(arg dataset_name).bag"/>
+	<!-- <node pkg="rosbag" type="play" name="player1" args="$(arg bag_dir)/$(arg dataset_name).bag"/> -->
 
 </launch>

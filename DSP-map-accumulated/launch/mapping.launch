@@ -7,7 +7,7 @@
 	<node pkg="rviz" type="rviz" name="rviz2" args="-d $(find dynamic_occpuancy_map)/rviz/future_status.rviz"/>
 	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find dynamic_occpuancy_map)/rviz/boxes.rviz"/>
 	
-	<arg name="bag_dir" default="$(find dynamic_occpuancy_map)/data"/>
+	<!-- <arg name="bag_dir" default="$(find dynamic_occpuancy_map)/data"/>
 	<arg name="dataset_name" default="street"/>
-	<node pkg="rosbag" type="play" name="player1" output="screen" args="$(arg bag_dir)/$(arg dataset_name).bag"/>
+	<node pkg="rosbag" type="play" name="player1" output="screen" args="$(arg bag_dir)/$(arg dataset_name).bag"/> -->
 </launch>

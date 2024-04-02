@@ -91,7 +91,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: false
-      Image Topic: /iris/vi_sensor/camera_depth/camera/image_raw
+      Image Topic: /iris_D435i/realsense/depth_camera/color/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -135,7 +135,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: false
-      Image Topic: /d400/color/image_raw
+      Image Topic: /iris_D435i/realsense/depth_camera/color/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
